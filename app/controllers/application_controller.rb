@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
 
     redirect_to root_path, notice: notice
   end
+
+  def time
+    
+  end
 end

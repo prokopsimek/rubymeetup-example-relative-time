@@ -1,7 +1,9 @@
 <h1>Rubymeetup example application</h1>
 
-<%= render 'current_time' %>
-<%= render 'server_time' %>
+
+<div id="times">
+  <%= render 'times' %>
+</div>
 
 <%= raw flash[:notice] %>
 
@@ -14,3 +16,14 @@
   <br>
   <%= submit_tag 'Send' %>
 <% end %>
+
+<script>
+  window.setInterval(function(){
+    console.log('happened');
+    $.ajax({
+      type: "get",
+      url: "time",
+      datatype: "json"
+    });
+  }, 1000);
+</script>
