@@ -80,13 +80,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: ENV['SPARKPOST_SMTP_HOST'],
-    port: ENV['SPARKPOST_SMTP_PORT'], # ports 587 and 2525 are also supported with STARTTLS
+    address: ENV['SMTP_HOST'],
+    port: 587, # ports 587 and 2525 are also supported with STARTTLS
     enable_starttls_auto: true, # detects and uses STARTTLS
-    user_name: ENV['SPARKPOST_SMTP_USERNAME'],
-    password: ENV['SPARKPOST_SMTP_PASSWORD'], # SMTP password is any valid API key
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'], # SMTP password is any valid API key
     authentication: 'login', # Mandrill supports 'plain' or 'login'
-    domain: 'rbmtp.prokopsimek.cz', # your domain to identify your server when connecting
+    domain: 'prokopsimek.cz', # your domain to identify your server when connecting
   }
 
   unless ENV['TIME_SCALE'].blank?
