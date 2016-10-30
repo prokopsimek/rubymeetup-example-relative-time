@@ -5,10 +5,11 @@
   <%= render 'times' %>
 </div>
 <br>
-<%= raw flash[:notice] %>
-<br>
 <div>
   <%= form_tag send_email_path, class: 'col-md-6 center-block', style: "margin: 0 25%;" do %>
+    <%= raw flash[:notice] %>
+    <br>
+
     <div class="form-group">
       <%= text_field_tag :email, nil, placeholder: 'E-mail', class: "form-control" %>
     </div>
