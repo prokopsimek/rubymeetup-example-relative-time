@@ -7,7 +7,9 @@
 <br>
 <div>
   <%= form_tag send_email_path, class: 'col-md-6 center-block', style: "margin: 0 25%;" do %>
-    <p class="alert alert-info"><%= raw flash[:notice] %></p>
+    <% if flash.any? %>
+      <p class="alert alert-info"><%= raw flash[:notice] %></p>
+    <% end %>
 
     <div class="form-group">
       <%= text_field_tag :email, nil, placeholder: 'E-mail', class: "form-control" %>
