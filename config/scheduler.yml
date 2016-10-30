@@ -1,0 +1,6 @@
+save_current_time:
+  every:
+    - "10m"
+    - first_in => '5m'
+  class: SaveCurrentTimeJob
+  description: "BILLING TESTING ONLY"

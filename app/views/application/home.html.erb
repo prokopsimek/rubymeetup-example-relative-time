@@ -1,0 +1,16 @@
+<h1>Rubymeetup example application</h1>
+
+<%= render 'current_time' %>
+<%= render 'server_time' %>
+
+<%= raw flash[:notice] %>
+
+<%= form_tag send_email_path do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <br>
+  <%= label_tag :text %>
+  <%= text_area_tag :text %>
+  <br>
+  <%= submit_tag 'Send' %>
+<% end %>

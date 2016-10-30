@@ -78,4 +78,26 @@ Rails.application.configure do
   end
 
   config.action_mailer.delivery_method = :sparkpost
+
+  unless ENV['TIME_SCALE'].blank?
+    # 3600: 1 day == 24 sec
+    # 1440: 1 day == 1 minute
+    # 24:   1 day == 1 hour
+    # 12:   1 day == 2 hours
+    # 6:    1 day == 4 hours
+    # 3:    1 day == 8 hours
+    time_scale = (ENV['TIME_SCALE']).to_f
+    config.after_initialize do
+      set_to_time = Redis.new.get('current_testing_time')
+      $stderr.puts "REDIS set_to_time: #{set_to_time}"
+      Timecop.travel(set_to_time) if set_to_time.present?
+      Timecop.scale(time_scale)
+    end
+
+    Sidekiq.schedule = YAML.load_file(File.expand_path(Rails.root + 'config/scheduler.yml', __FILE__))
+    Sidekiq::Scheduler.enabled = true
+    Sidekiq::Scheduler.reload_schedule!
+
+    $stderr.puts "TIME_SCALE: #{time_scale} @ #{Time.now.to_s}"
+  end
 end
