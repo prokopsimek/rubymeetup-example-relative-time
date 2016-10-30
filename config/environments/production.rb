@@ -86,7 +86,7 @@ Rails.application.configure do
     user_name: ENV['SPARKPOST_SMTP_USERNAME'],
     password: ENV['SPARKPOST_SMTP_PASSWORD'], # SMTP password is any valid API key
     authentication: 'login', # Mandrill supports 'plain' or 'login'
-    domain: 'prokopsimek.cz', # your domain to identify your server when connecting
+    domain: 'rbmtp.prokopsimek.cz', # your domain to identify your server when connecting
   }
 
   unless ENV['TIME_SCALE'].blank?
