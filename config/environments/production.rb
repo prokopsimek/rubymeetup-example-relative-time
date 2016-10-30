@@ -100,6 +100,7 @@ Rails.application.configure do
     config.after_initialize do
       set_to_time = Redis.new.get('current_testing_time')
       $stderr.puts "REDIS set_to_time: #{set_to_time}"
+      $stderr.puts "time_scale: #{time_scale}"
       Timecop.travel(set_to_time) if set_to_time.present?
       Timecop.scale(time_scale)
     end
