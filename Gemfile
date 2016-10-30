@@ -46,4 +46,7 @@ gem 'rails-i18n'
 gem 'timecop'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
-gem 'sparkpost_rails'
+
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
