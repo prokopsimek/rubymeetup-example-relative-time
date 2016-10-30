@@ -78,6 +78,8 @@ Rails.application.configure do
   end
 
   config.action_mailer.delivery_method = :sparkpost
+  config.action_mailer.default_url_options = { host: "prokopsimek.cz" }
+
 
   unless ENV['TIME_SCALE'].blank?
     # 3600: 1 day == 24 sec
