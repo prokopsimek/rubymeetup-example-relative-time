@@ -77,17 +77,7 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.smtp_settings = {
-    address: ENV['SPARKPOST_SMTP_HOST'],
-    port: ENV['SPARKPOST_SMTP_PORT'], # ports 587 and 2525 are also supported with STARTTLS
-    enable_starttls_auto: true, # detects and uses STARTTLS
-    user_name: ENV['SPARKPOST_SMTP_USERNAME'],
-    password: ENV['SPARKPOST_SMTP_PASSWORD'], # SMTP password is any valid API key
-    authentication: 'login', # Mandrill supports 'plain' or 'login'
-    domain: 'knowspread.com', # your domain to identify your server when connecting
-  }
+  config.action_mailer.delivery_method = :sparkpost
 
   unless ENV['TIME_SCALE'].blank?
     # 3600: 1 day == 24 sec
