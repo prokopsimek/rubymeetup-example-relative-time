@@ -1,12 +1,11 @@
 <p>Hello</p>
 <p>This is email from the future!</p>
-<p>Time when email sent: <%= @real_time %></p>
-<p>Server time when email sent: <%= @server_time %></p>
+<p>Time when email sent: <%= l @real_time, format: '%d. %B %Y %H:%M:%S' %></p>
+<p>Server time when email sent: <%= l @server_time, format: '%d. %B %Y %H:%M:%S' %></p>
 <br>
 <% unless @text.blank? %>
   <p>User send you a message:</p>
-  <br>
   <p><%= @text %></p>
   <br>
 <% end %>
-<p>Keep fun on <%= link_to 'https://www.meetup.com/Prague-Ruby-Meetup/', 'RubyMeetup Prague!'</p>
+<p>Keep fun on <%= link_to 'https://www.meetup.com/Prague-Ruby-Meetup/', 'RubyMeetup Prague!' %></p>
