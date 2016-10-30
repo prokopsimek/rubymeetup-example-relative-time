@@ -8,6 +8,6 @@ class RelativeTimeMailer < ApplicationMailer
 
       @text = text
 
-      mail(to: email, subject: 'Rubymeetup Prague - relative time example')
+      mail(to: email, subject: 'Rubymeetup Prague - relative time example', sparkpost_data: { api_key: ENV['SPARKPOST_API_KEY'] })
   end
 end
