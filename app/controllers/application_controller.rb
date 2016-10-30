@@ -7,12 +7,13 @@ class ApplicationController < ActionController::Base
   end
 
   def send_email
-    email = params[:email]
+    email_from = params[:email_from]
+    email_to = params[:email_to]
     text = params[:text]
 
-    if email.present?
-      if email =~ /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
-        RelativeTimeMailer.info_email(email, text).deliver_later
+    if email_to.present? && email_from.present?
+      if email_to =~ /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ && email_from =~ /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+        RelativeTimeMailer.info_email(email_to, email_from, text).deliver_later
         notice = 'Email sent, check your inbox'
       else
         notice = 'Invalid email format'

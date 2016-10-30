@@ -12,7 +12,10 @@
     <% end %>
 
     <div class="form-group">
-      <%= text_field_tag :email, nil, placeholder: 'E-mail', class: "form-control" %>
+      <%= text_field_tag :email_from, nil, placeholder: 'E-mail FROM', class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :email_to, nil, placeholder: 'E-mail TO', class: "form-control" %>
     </div>
     <div class="form-group">
       <%= text_area_tag :text, nil, placeholder: 'Your message...', class: "form-control", rows: 5 %>
