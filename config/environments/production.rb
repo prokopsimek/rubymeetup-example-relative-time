@@ -78,7 +78,7 @@ Rails.application.configure do
   end
 
   config.action_mailer.delivery_method = :sparkpost
-  config.action_mailer.default_url_options = { host: "prokopsimek.cz" }
+  # config.action_mailer.default_url_options = { host: "prokopsimek.cz" }
 
 
   unless ENV['TIME_SCALE'].blank?
