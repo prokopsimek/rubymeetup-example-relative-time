@@ -1,10 +1,13 @@
 <h1 class="text-center">Rubymeetup example application</h1>
 
+<br />
 
 <div id="times" class="text-center">
   <%= render 'times' %>
 </div>
 <br>
+<br />
+
 <div>
   <%= form_tag send_email_path, class: 'col-md-6 center-block', style: "margin: 0 25%;" do %>
     <% if flash.any? %>
