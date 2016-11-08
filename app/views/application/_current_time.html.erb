@@ -1,1 +1,1 @@
-<h4>Current time: <%= Timecop.return { l DateTime.now, format: '%d. %B %Y %H:%M:%S' } %></h4>
+<h4>Current time: <%= Timecop.return { l Time.zone.now, format: '%d. %B %Y %H:%M:%S' } %></h4>
