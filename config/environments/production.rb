@@ -99,9 +99,11 @@ Rails.application.configure do
     time_scale = (ENV['TIME_SCALE']).to_f
     config.after_initialize do
       set_to_time = Redis.new.get('current_testing_time')
+      current_time = DateTime.now.to_s
       $stderr.puts "REDIS set_to_time: #{set_to_time}"
+      $stderr.puts "current_time: #{current_time}"
       $stderr.puts "time_scale: #{time_scale}"
-      Timecop.travel(set_to_time) if set_to_time.present?
+      Timecop.travel(set_to_time) if set_to_time.present? && current_time < DateTime.parse(set_to_time)
       Timecop.scale(time_scale)
     end
 
