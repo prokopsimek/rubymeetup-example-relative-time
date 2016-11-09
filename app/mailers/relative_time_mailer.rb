@@ -1,9 +1,9 @@
 class RelativeTimeMailer < ApplicationMailer
   def info_email(email_to, email_from, text)
 
-      @server_time = DateTime.now
+      @server_time = Time.zone.now
       Timecop.return do
-        @real_time = DateTime.now
+        @real_time = Time.zone.now
       end
 
       @text = text
