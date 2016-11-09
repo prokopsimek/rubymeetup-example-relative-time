@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
     if email_to.present? && email_from.present?
       if email_to =~ /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ && email_from =~ /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
-        RelativeTimeMailer.info_email(email_to, email_from, text).deliver_now
+        RelativeTimeMailer.info_email(email_to, email_from, text).deliver_later
         notice = 'Email sent, check your inbox'
       else
         notice = 'Invalid email format'
